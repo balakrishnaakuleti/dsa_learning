@@ -11,10 +11,11 @@ class Solution:
     def isCyclic(self, V : int , adj : List[List[int]]) -> bool :
         # code here
         for i in range(V):
-            visited_array = [False for _ in range(V)]
-            recStack = [False for _ in range(V)]
-            if self.isCyclicUtil(i, adj, visited_array, recStack):
-                return True
+            if len(adj[i])>0:
+                visited_array = [False for _ in range(V)]
+                recStack = [False for _ in range(V)]
+                if self.isCyclicUtil(i, adj, visited_array, recStack):
+                    return True
         return False
 
     def isCyclicUtil(self, node, adj, vis, rec):
