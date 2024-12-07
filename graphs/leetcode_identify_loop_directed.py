@@ -13,20 +13,20 @@ class Solution:
         for i in range(V):
             if len(adj[i])>0:
                 visited_array = [False for _ in range(V)]
-                recStack = [False for _ in range(V)]
-                if self.isCyclicUtil(i, adj, visited_array, recStack):
+                current_path_visited_array = [False for _ in range(V)]
+                if self.isCyclicUtil(i, adj, visited_array, current_path_visited_array):
                     return True
         return False
 
-    def isCyclicUtil(self, node, adj, vis, rec):
+    def isCyclicUtil(self, node, adj, vis, current_path_visited_array):
         vis[node]=True
-        rec[node]=True
+        current_path_visited_array[node]=True
         for child in adj[node]:
-            if not vis[child] and self.isCyclicUtil( child, adj, vis, rec):
+            if not vis[child] and self.isCyclicUtil( child, adj, vis, current_path_visited_array):
                 return True
-            elif rec[child]:
+            elif current_path_visited_array[child]:
                 return True
-        rec[node]=False
+        current_path_visited_array[node]=False
 
 #{ 
  # Driver Code Starts
