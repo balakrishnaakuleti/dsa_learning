@@ -1,8 +1,12 @@
-import numpy as np
 
-arr = np.array([1,2,3,4,5,6], ndmin=5)
+def method(a,b):
+    a=3
+    b=4
 
-print(arr)
+a=1
+b=2
+method(a,b)
 
-print(type(arr))
-print(arr.ndim)
+print(a)
+print(b)
+
